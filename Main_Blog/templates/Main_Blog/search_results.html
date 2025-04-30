@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+
+{%block body_block%}
+<h2>Results for "{{ query }}"</h2>
+
+{% if results %}
+  <ul class="list-group">
+    {% for post in results %}
+      <li class="list-group-item">
+        <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No results found.</p>
+{% endif %}
+
+{%endblock%}
