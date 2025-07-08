@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
 {% block body_block %}
+<div class="container form-container">
+  <h1>Delete Post</h1>
+  <p class="text-danger">This action cannot be undone.</p>
+  <p class="text-danger">If you delete this post, all comments associated with it
 <form action="" method="post">{% csrf_token %}
     <p>Are you sure you want to delete "{{ object }}"?</p>
     <input class='btn btn-danger' type="submit" value="Confirm" />
   </form>
-
+</div>
 {% endblock %}

@@ -2,7 +2,7 @@
 {% extends 'base.html'%}
 
 {%block body_block%}
-
+<div class="container post-detail-container">
     <h1 class="posttitle color-changing-text">{{post.title}}</h1>
 
     {% if post.published_date%}
@@ -13,13 +13,13 @@
     
     {% else %}
 
-    <a href="{% url 'publish_post' pk=post.pk %}" class="btn btn-outline-primary">Publish</a>
+    <a href="{% url 'publish_post' pk=post.pk %}" class="btn btn-outline-success">Publish</a>
     {% endif %}
 
     <p class='postcontent' >{{ post.text|safe|linebreaksbr }}</p>
 
 
-      {% if user.is_authenticated %}
+      {% if user.is_authenticated and user == post.author %}
           <a class="btn btn-warning" href="{% url 'update' pk=post.pk %}"><i class="bi bi-pencil"></i></a>
           <a class="btn btn-danger" href="{% url 'delete_post' pk=post.pk %}"><i class="bi bi-trash"></i></a>
       {% endif %}
@@ -37,20 +37,30 @@
 
               {{ comment.created_date }}
               {% if not comment.approved_comment %}
+                 
+                <span class="badge bg-warning">Pending Approval</span>
+                {% if user == comment.post.author %}
                   <a class="btn btn-danger" href="{% url 'delete_comment' pk=comment.pk %}"><i class="bi bi-x"></i></a>
                   <a class="btn btn-success" href="{% url 'approve_comment' pk=comment.pk %}"><i class="bi bi-check"></i></a>
+                {% endif %}
+                {% else %}
+                <span class="badge bg-success">Approved</span>
               {% endif %}
 
           <p>{{ comment.text|safe|linebreaks }}</p>
           <p>Posted by: <strong>{{ comment.author }}</strong></p>
+          {% if user.is_authenticated and user == comment.author %}
+                    <a class="btn btn-danger" href="{% url 'delete_comment' pk=comment.pk %}"><i class="bi bi-x"></i></a>
+           {% endif %}
 
       {% endif %}
   {% empty %}
       <p>No comments posted.</p>
   {% endfor %}
 </div>
-    </div>
-    
+</div>
+
+
 
 
 

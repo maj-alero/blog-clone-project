@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% extends 'Main_Blog/base.html'%}
+
+{%block body_block%}
+<div class="jumbotron">
+    <h1>Profile Page</h1>
+    <p>Welcome, {{ user.username }}!</p>
+    <p>Email: {{ user.email }}</p>
+    
+</div>
+{% if user.is_authenticated %}
+    <div class="jumbotron">
+        <h2>Posts</h2>
+        {% for post in user_posts %}
+            <div class="post">
+                <h3 ><a href="{% url 'post_detail' pk=post.pk %}" class="post-title">{{ post.title }}</a></h3>
+                <p>{{ post.text|truncatechars:200|safe }}...</p>
+                <p>Created on: {{ post.created_date|date:'d-m-Y' }}</p>
+                {% if post.published_date %}
+                    <p>Published on: {{ post.published_date|date:'d-m-Y' }}</p>
+                {% else %}
+                    <p>Status: Not Published</p>
+                {% endif %}
+                {% if user == post.author %}
+                    <a class="btn btn-warning" href="{% url 'update' pk=post.pk %}">Edit</a>
+                    <a class="btn btn-danger" href="{% url 'delete_post' pk=post.pk %}">Delete</a>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>You have not created any posts yet.</p>
+            <a href="{% url 'new_post' %}">Create your first post</a>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>You need to be logged in to view your profile.</p>
+{% endif %}
+{%endblock%}

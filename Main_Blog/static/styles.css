@@ -1,6 +1,44 @@
+html{
+  scroll-behavior: smooth;
+  height: 100%;
+}
 
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #E0E0E0;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
 
-.color-changing-text {
+.navbar{
+  background-color: #3A606E;
+  color: #fff;
+}
+
+.search{
+  background-color: #828E82;
+  color: white;
+  
+  border-radius: 5px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.search:enabled {
+  background-color: #3a5c3a;
+  color: white;
+}
+
+.post {
+  background: #828E82;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(48, 48, 48, 0.1);
+}
+
+/* .color-changing-text {
     color: rgb(255,255,255);
     animation-name: colorchange;
     animation-duration: 11s;
@@ -19,16 +57,19 @@
         80%{color: #d94646;}
         90%{color: #b96c52;}
         100%{color: #bcef32;}
-}
+} */
 
 .postdate{
     text-align: center;
   }
   
   .posttitle{
-    font-family: 'Russo One', sans-serif;
-    font-size: 3em;
+    
     text-align: center;
+    text-decoration: none;
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-style: italic;
   }
   
   .postcontent{
@@ -77,18 +118,17 @@
     font-size: 1.75rem;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #111;
+    color: #fff;
     text-decoration: none;
   }
   
   .post-title:hover {
-    color: #000;
-    text-decoration: underline;
+    color: #93dbba;
   }
   
   /* Post meta info */
   .post-meta {
-    color: #999;
+    color: rgb(233, 233, 233);
     font-size: 0.9rem;
     
   }
@@ -103,12 +143,53 @@
   .read-more {
     display: inline-block;
     margin-top: 10px;
-    color: #1a8917;
+    color: #146311;
     text-decoration: none;
     font-weight: 500;
+  }
+  .read-more:visited {
+    color: #0c3b0a;
   }
   
   .read-more:hover {
     text-decoration: underline;
   }
+
+ .post-detail-container{
+    margin: auto;
+    padding: 20px;
+    max-width: 800px;
+    
+  }
+
+  .form-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #f7f6f6;
+    background-color: #aaae8ebd;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(48, 48, 48, 0.1);
+    
+  }
+
+  
+  /* .post-item {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .post-item:last-child {
+    border-bottom: none;
+  }
+  .post-title {
+    font-size: 1.5rem;
+    color: #333;
+    text-decoration: none;
+  }
+  
+
+   */
+ 
   

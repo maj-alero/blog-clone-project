@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends 'base.html'%}
+
+{%block body_block%}
+<div class="jumbotron form-container">
+<h2 class="text-center mb-4">Create an Account</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success w-100">Sign Up</button>
+</form>
+<p class="text-center mt-3">Already have an account? <a href="{% url 'login' %}" style="text-decoration: none; color: #3A606E">Login</a></p>
+</div>
+{%endblock%}
