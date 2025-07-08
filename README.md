@@ -19,9 +19,9 @@ A feature-rich blogging platform built with Django, allowing users to create, ed
 
 - Python 3.x
 - Django 4.x
-- SQLite (default database)
+- SQLite )
 - HTML5, CSS3
-- Bootstrap (optional, if used)
+- Bootstrap 
 
 ---
 
