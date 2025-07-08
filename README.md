@@ -55,8 +55,8 @@ python manage.py runserver
 ## Author
 
 Amaju Ogbe  
-GitHub: https://github.com/yourusername  
-LinkedIn: https://linkedin.com/in/your-profile  
+GitHub: https://github.com/maj-alero
+LinkedIn: https://linkedin.com/in/amaju-ogbe-a2098b309
 
 
 
